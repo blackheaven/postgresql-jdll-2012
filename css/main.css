@@ -62,6 +62,7 @@ ol, ul {
 
 ul { width:480px; margin-right:auto; margin-left:auto; }
 ul li { text-align:left; font-size:24px; }
+ul ul { margin-left: 20px; }
 
 blockquote {
     font-size: 36px;

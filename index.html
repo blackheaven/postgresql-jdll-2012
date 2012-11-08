@@ -66,15 +66,29 @@
     <div id="contenu" class="step" data-x="3700" data-y="-3950" data-rotate="32" data-scale="2">
         <h1>Ce que contient cette présentation</h1>
         <ul>
-          <li>Installation</li>
+          <li>Présentation</li>
+          <li>La base</li>
+            <ul>
+              <li>Indexes</li>
+              <li>VACUUM</li>
+              <li>EXPLAIN</li>
+              <li>Recherche plein texte</li>
+              <li>Procédures stockées</li>
+              <li>Triggers</li>
+            </ul>
           <li>Outils</li>
-          <li>VACUUM</li>
-          <li>EXPLAIN</li>
-          <li>Procédures stockées</li>
-          <li>Triggers</li>
-          <li>Recherche plein texte</li>
-          <li>FDW</li>
-          <li>PostGIS</li>
+            <ul>
+              <li>PgAdmin</li>
+              <li>Réplication</li>
+              <li>Surveillance</li>
+            </ul>
+          <li>Extensions</li>
+            <ul>
+              <li>PGXN</li>
+              <li>PostGIS</li>
+              <li>SQL/MED</li>
+            </ul>
+          <li>Vers l'infini et au delà</li>
         </ul>
     </div>
 
@@ -92,20 +106,38 @@
         </blockquote>
     </div>
 
-    <div id="installation" class="step" data-x="4000" data-y="2000" data-scale="1">
+    <div id="histoire" class="step" data-x="4000" data-y="2000" data-scale="1">
+        <h1>Historique</h1>
+        <ul>
+          <li>1977-1985 : Ingres encradré par Michael Stonebraker</li>
+          <li>1986 : Postgres</li>
+          <li>1995 : Intégration du SQL (Postres95)</li>
+          <li>1996 : PostgreSQL, passage à l'OpenSource et création du PostgreSQL Global Development Group</li>
+        </ul>
+    </div>
+
+    <div id="caracteristiques" class="step" data-x="150" data-y="2000" data-scale="1">
+        <h1>Caractéristiques</h1>
+        <ul>
+          <li>License : PostgreSQL (ISC)</li>
+          <li>Versions : 8.3, 8.4, 9.0, 9.1, 9.2 (et bientôt 9.3)</li>
+          <li>Bon support de SQL:2011 (160+/179), SQL/MED</li>
+          <li>Support ACID/MVCC</li>
+          <li>PostgreSQL Global Development Group :</li>
+          <ul>
+            <li>6 membres de la Core Team</li>
+            <li>38 contributeurs majeurs</li>
+            <li>40 contributeurs</li>
+            <li>100 contributeurs occasionnels</li>
+          </ul>
+          <li>Très peu de limitations : 32 To par tables, 1 To par champs, 1.6 To par lignes et 250 à 1.600 colonnes par tabes</li>
+        </ul>
+    </div>
+
+    <div id="installation" class="step" data-x="-500" data-y="2500" data-scale="1">
         <h1>Installation</h1>
         <pre>$ sudo apt-get install postgresql</pre>
         <pre>$ sudo yum install postgresql-server</pre>
-    </div>
-
-    <div id="outils" class="step" data-x="150" data-y="2000" data-scale="1">
-        <h1>Outils</h1>
-        PgAdmin : Screen
-    </div>
-
-    <div id="vacuum" class="step" data-x="-500" data-y="2500" data-scale="1">
-        <h1>VACUUM</h1>
-        Explications
     </div>
 
     <div id="vacuum2" class="step" data-x="3200" data-y="-200" data-rotate="90" data-scale="2">
