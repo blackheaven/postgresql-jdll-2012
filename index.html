@@ -187,33 +187,54 @@
     </div>
 
     <div id="plein-texte" class="step" data-x="2800" data-y="2400" data-rotate="90" data-scale="2">
-        <h1>Recherche plein-texte</h1>
-        <pre><code>SELECT * FROM mytable;</code></pre>
+        <h1>Recherche plein-texte : classique</h1>
+        <pre><code>SELECT * FROM messages
+WHERE contenu LIKE '%travail%';</code></pre>
     </div>
 
     <div id="plein-texte2" class="step" data-x="2700" data-y="3700" data-rotate="100" data-scale="1">
-        <h1>Triggers</h1>
-        <h1>Recherche plein-texte</h1>
-        Explications
+        <h1>Recherche plein-texte : le contenu</h1>
+        <pre><code>SELECT to_tsvector('a fat cat sat on
+a mat and ate a fat rat');</code></pre>
+        donne
+        <pre><code>'ate':9 'cat':3 'fat':2,11 'mat':7 'rat':12
+'sat':4</code></pre>
     </div>
 
     <div id="plein-texte3" class="step" data-x="2000" data-y="4800" data-scale="2">
-        <h1>Recherche plein-texte</h1>
-        Explications
+        <h1>Recherche plein-texte : la requête</h1>
+        <pre><code>SELECT to_tsquery('cat & rat');</code></pre>
+        donne
+        <pre><code>'cat' & 'rat'</code></pre>
     </div>
 
     <div id="plein-texte4" class="step" data-x="1000" data-y="3000" data-rotate="-90" data-scale="2">
-        <h1>Recherche plein-texte</h1>
-        Explications
+        <h1>Recherche plein-texte : le choc</h1>
+        <pre><code>SELECT * FROM messages
+WHERE to_tsvector(contenu)
+@@ to_tsquery('cat & rat');</code></pre>
     </div>
 
     <div id="plein-texte5" class="step" data-x="-2500" data-y="-4200" data-scale="2">
-        <h1>Recherche plein-texte</h1>
-        Explications
+        <h1>Recherche plein-texte : la vitesse</h1>
+        <ul>
+          <li>GiST</li>
+          <ul>
+            <li>Index à perte (faux positifs)</li>
+            <li>3 fois plus rapide à se construire</li>
+            <li>3 fois plus lent lors de la recherche</li>
+          </ul>
+          <li>GIN</li>
+          <ul>
+            <li>Consommation disque 2 à 3 fois plus grande</li>
+            <li>Mise à jour légèrement plus longue (10 fois plus longue si la mise à jour automatique est désactivée)</li>
+            <li>Performances de construction liée à la mémoire disponible</li>
+          </ul>
+        </ul>
     </div>
 
-    <div id="plein-texte6" class="step" data-x="-4200" data-y="-2200" data-rotate="90" data-scale="2">
-        <h1>Recherche plein-texte</h1>
+    <div id="pl" class="step" data-x="-4200" data-y="-2200" data-rotate="90" data-scale="2">
+        <h1>PL</h1>
         Explications
     </div>
 
