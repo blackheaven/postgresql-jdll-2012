@@ -13,6 +13,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
     <link href="css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/highlight.js/src/styles/solarized_dark.css">
 
     <link rel="shortcut icon" href="lib/impress.js/favicon.png" />
     <link rel="apple-touch-icon" href="lib/impress.js/apple-touch-icon.png" />
@@ -187,7 +188,7 @@
 
     <div id="plein-texte" class="step" data-x="2800" data-y="2400" data-rotate="90" data-scale="2">
         <h1>Recherche plein-texte</h1>
-        Explications
+        <pre><code>SELECT * FROM mytable;</code></pre>
     </div>
 
     <div id="plein-texte2" class="step" data-x="2700" data-y="3700" data-rotate="100" data-scale="1">
@@ -284,6 +285,8 @@
 
 <script src="lib/impress.js/js/impress.js"></script>
 <script>impress().init();</script>
+<script src="lib/highlight.js/build/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 </html>
