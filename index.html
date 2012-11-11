@@ -137,8 +137,8 @@
 
     <div id="installation" class="step" data-x="-500" data-y="2500" data-scale="1">
         <h1>Installation</h1>
-        <pre>$ sudo apt-get install postgresql</pre>
-        <pre>$ sudo yum install postgresql-server</pre>
+        <pre class="bash"><code>$ sudo apt-get install postgresql
+$ sudo yum install postgresql-server</code></pre>
     </div>
 
     <div id="vacuum2" class="step" data-x="3200" data-y="-200" data-rotate="90" data-scale="2">
@@ -263,24 +263,47 @@ WHERE to_tsvector(contenu)
         Explications
     </div>
 
-    <div id="postgis" class="step" data-x="5000" data-y="-4800" data-rotate="-120" data-scale="2">
-        <h1>PostGIS</h1>
-        Explications
+    <div id="extensions" class="step" data-x="5000" data-y="-4800" data-rotate="-120" data-scale="2">
+        <h1>Extensions</h1>
+        IMG
     </div>
 
-    <div id="postgis2" class="step" data-x="5800" data-y="-3200" data-rotate="-80" data-scale="2">
-        <h1>PostGIS</h1>
-        Explications
+    <div id="pgxn" class="step" data-x="5800" data-y="-3200" data-rotate="-80" data-scale="2">
+        <h1>PGXN</h1>
+        <ul>
+          <li>PostgreSQL Extension network</li>
+          <li>créé en Mai 2011 suite à la PGCon</li>
+          <li>il a pour but de regrouper les extensions disponible</li>
+          <li>93 extensions et 88 distributions</li>
+        </ul>
+
+        Outils
+        <ul>
+          <li><b>PGXN Manager :</b> Infrastructure pour les développeurs</li>
+          <li><b>PGXN API :</b> API pour les extensions</li>
+          <li><b>PGXN Search :</b> Site web qui contient les extensions et leur documentation</li>
+          <li><b>PGXN Client :</b> programme en ligne de commande pour télécharger, tester et installer les extensions</li>
+        </ul>
     </div>
 
-    <div id="postgis3" class="step" data-x="5100" data-y="-0200" data-rotate="-60" data-scale="2">
-        <h1>PostGIS</h1>
-        Explications
+    <div id="pgxn-client" class="step" data-x="5100" data-y="-0200" data-rotate="-60" data-scale="2">
+        <h1>PGXN Client</h1>
+        Utilisation :
+        <pre><code class="bash">$ pgxn install ext
+$ pgxn load -d db ext</code></pre>
     </div>
 
     <div id="postgis4" class="step" data-x="3400" data-y="3600" data-rotate="-80" data-scale="2">
         <h1>PostGIS</h1>
-        Explications
+        <ul>
+          <li>Standards ISO et OGC : ISO 19125, SQL/MM, SFS 1.2.0</li>
+          <li>Gestion de données géographiques</li>
+          <li>Gestion de données géométrique : 2D, 3D et 4D</li>
+          <li>Gestion des graphes</li>
+          <li>Conforme à SQL/MM</li>
+          <li>Transformations, projections, agorithmes courants, etc.</li>
+          <li>Possibilité de mettre des (SP-)GiST pour accélérer les recherches</li>
+        </ul>
     </div>
 
     <!--

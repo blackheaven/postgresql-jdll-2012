@@ -60,7 +60,7 @@ body {
 ol, ul {
 }
 
-ul { width:480px; margin-right:auto; margin-left:auto; }
+ul { width:700px; margin-right:auto; margin-left:auto; }
 ul li { text-align:left; font-size:24px; }
 ul ul { margin-left: 20px; }
 
@@ -187,7 +187,7 @@ a:focus {
     box-sizing:         border-box;
 
     font-family: 'PT Serif', georgia, serif;
-    font-size: 48px;
+    font-size: 36px;
     line-height: 1.5;
 }
 
