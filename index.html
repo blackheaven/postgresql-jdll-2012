@@ -87,7 +87,7 @@
             <ul>
               <li>PGXN</li>
               <li>PostGIS</li>
-              <li>SQL/MED</li>
+              <li>Foreign Data Wrapper</li>
             </ul>
           <li>Vers l'infini et au delà</li>
         </ul>
@@ -120,10 +120,10 @@
     <div id="caracteristiques" class="step" data-x="150" data-y="2000" data-scale="1">
         <h1>Caractéristiques</h1>
         <ul>
-          <li>License : PostgreSQL (ISC)</li>
-          <li>Versions : 8.3, 8.4, 9.0, 9.1, 9.2 (et bientôt 9.3)</li>
-          <li>Bon support de SQL:2011 (160+/179), SQL/MED</li>
-          <li>Support ACID/MVCC</li>
+          <li>License : PostgreSQL (ISC),</li>
+          <li>Versions : 8.3, 8.4, 9.0, 9.1, 9.2 (et bientôt 9.3),</li>
+          <li>Bon support de SQL:2011 (160+/179), SQL/MED,</li>
+          <li>Support ACID/MVCC,</li>
           <li>PostgreSQL Global Development Group :</li>
           <ul>
             <li>6 membres de la Core Team</li>
@@ -131,7 +131,7 @@
             <li>40 contributeurs</li>
             <li>100 contributeurs occasionnels</li>
           </ul>
-          <li>Très peu de limitations : 32 To par tables, 1 To par champs, 1.6 To par lignes et 250 à 1.600 colonnes par tabes</li>
+          <li>Très peu de limitations : 32 To par tables, 1 To par champs, 1.6 To par lignes et 250 à 1.600 colonnes par tabes.</li>
         </ul>
     </div>
 
@@ -220,15 +220,15 @@ WHERE to_tsvector(contenu)
         <ul>
           <li>GiST</li>
           <ul>
-            <li>Index à perte (faux positifs)</li>
-            <li>3 fois plus rapide à se construire</li>
-            <li>3 fois plus lent lors de la recherche</li>
+            <li>Index à perte (faux positifs),</li>
+            <li>3 fois plus rapide à se construire,</li>
+            <li>3 fois plus lent lors de la recherche.</li>
           </ul>
           <li>GIN</li>
           <ul>
-            <li>Consommation disque 2 à 3 fois plus grande</li>
-            <li>Mise à jour légèrement plus longue (10 fois plus longue si la mise à jour automatique est désactivée)</li>
-            <li>Performances de construction liée à la mémoire disponible</li>
+            <li>Consommation disque 2 à 3 fois plus grande,</li>
+            <li>Mise à jour légèrement plus longue (10 fois plus longue si la mise à jour automatique est désactivée),</li>
+            <li>Performances de construction liée à la mémoire disponible,</li>
           </ul>
         </ul>
     </div>
@@ -238,22 +238,22 @@ WHERE to_tsvector(contenu)
         Explications
     </div>
 
-    <div id="fdw" class="step" data-x="-2200" data-y="-2600" data-rotate="110" data-scale="2">
+    <div id="fdw_" class="step" data-x="-2200" data-y="-2600" data-rotate="110" data-scale="2">
         <h1>Triggers</h1>
         Explications
     </div>
 
-    <div id="fdw2" class="step" data-x="-3800" data-y="-400" data-rotate="75" data-scale="2">
+    <div id="fdw2_" class="step" data-x="-3800" data-y="-400" data-rotate="75" data-scale="2">
         <h1>Triggers</h1>
         Explications
     </div>
 
-    <div id="fdw3" class="step" data-x="-2400" data-y="-200" data-rotate="-100" data-scale="2">
+    <div id="fdw3_" class="step" data-x="-2400" data-y="-200" data-rotate="-100" data-scale="2">
         <h1>Triggers</h1>
         Explications
     </div>
 
-    <div id="fdw4" class="step" data-x="-3400" data-y="1200" data-rotate="80" data-scale="2">
+    <div id="fdw4_" class="step" data-x="-3400" data-y="1200" data-rotate="80" data-scale="2">
         <h1>Triggers</h1>
         Explications
     </div>
@@ -271,18 +271,18 @@ WHERE to_tsvector(contenu)
     <div id="pgxn" class="step" data-x="5800" data-y="-3200" data-rotate="-80" data-scale="2">
         <h1>PGXN</h1>
         <ul>
-          <li>PostgreSQL Extension network</li>
-          <li>créé en Mai 2011 suite à la PGCon</li>
-          <li>il a pour but de regrouper les extensions disponible</li>
-          <li>93 extensions et 88 distributions</li>
+          <li>PostgreSQL Extension network,</li>
+          <li>créé en Mai 2011 suite à la PGCon,</li>
+          <li>il a pour but de regrouper les extensions disponible,</li>
+          <li>93 extensions et 88 distributions,</li>
         </ul>
 
         Outils
         <ul>
-          <li><b>PGXN Manager :</b> Infrastructure pour les développeurs</li>
-          <li><b>PGXN API :</b> API pour les extensions</li>
-          <li><b>PGXN Search :</b> Site web qui contient les extensions et leur documentation</li>
-          <li><b>PGXN Client :</b> programme en ligne de commande pour télécharger, tester et installer les extensions</li>
+          <li><b>PGXN Manager :</b> Infrastructure pour les développeurs.</li>
+          <li><b>PGXN API :</b> API pour les extensions.</li>
+          <li><b>PGXN Search :</b> Site web qui contient les extensions et leur documentation.</li>
+          <li><b>PGXN Client :</b> programme en ligne de commande pour télécharger, tester et installer les extensions.</li>
         </ul>
     </div>
 
@@ -293,17 +293,48 @@ WHERE to_tsvector(contenu)
 $ pgxn load -d db ext</code></pre>
     </div>
 
-    <div id="postgis4" class="step" data-x="3400" data-y="3600" data-rotate="-80" data-scale="2">
+    <div id="postgis" class="step" data-x="3400" data-y="3600" data-rotate="-80" data-scale="2">
         <h1>PostGIS</h1>
         <ul>
-          <li>Standards ISO et OGC : ISO 19125, SQL/MM, SFS 1.2.0</li>
-          <li>Gestion de données géographiques</li>
-          <li>Gestion de données géométrique : 2D, 3D et 4D</li>
-          <li>Gestion des graphes</li>
-          <li>Conforme à SQL/MM</li>
+          <li>Standards ISO et OGC : ISO 19125, SQL/MM, SFS 1.2.0.</li>
+          <li>Gestion de données géographiques,</li>
+          <li>Gestion de données géométrique : 2D, 3D et 4D.</li>
+          <li>Gestion des graphes,</li>
+          <li>Conforme à SQL/MM,</li>
           <li>Transformations, projections, agorithmes courants, etc.</li>
-          <li>Possibilité de mettre des (SP-)GiST pour accélérer les recherches</li>
-          <li>Utilisation facilitité avec OpenStreetMap</li>
+          <li>Possibilité de mettre des (SP-)GiST pour accélérer les recherches,</li>
+          <li>Utilisation facilitité avec OpenStreetMap.</li>
+        </ul>
+    </div>
+
+    <div id="fdw" class="step" data-x="3600" data-y="7000" data-rotate="80" data-scale="2">
+        <h1>Foreign Data Wrapper</h1>
+        <ul>
+          <li>Standard  SQL/MED (SQL Management of External Data),</li>
+          <li>Permet de gérer des sources externes de données,</li>
+          <li>Définies comme tables,</li>
+          <li>Impossible de poser des contraintes,</li>
+          <li>La majorité se trouvent sur PGXN,</li>
+          <li>Plus de 20 wrappers actuellement.</li>
+        </ul>
+        <pre><code>CREATE FOREIGN TABLE passwd (
+username text, pass text, uid int4, gid int4,
+gecos text, home text, shell text
+) SERVER file_server OPTIONS (format 'text',
+filename '/etc/passwd', delimiter ':', null '');</code></pre>
+        utilisation comme une table normale :
+        <pre><code>SELECT * FROM passwd
+ORDER BY uid ASC LIMIT 3;</code></pre>
+    </div>
+
+    <div id="fdw2" class="step" data-x="3600" data-y="7000" data-rotate="80" data-scale="2">
+        <h1>Foreign Data Wrapper : liste</h1>
+        <ul>
+          <li>Principaux SGBDR : oracle_fdw, mysql_fdw, tds_fdw (Microsoft SQL Server), odbc_fdw, jdbc_fdw.</li>
+          <li>Principaux SGBD NoSQL : couchdb_fdw, mongo_fdw, redis_fdw.</li>
+          <li>Fichiers : file_fdw, file_text_array_fdw, fixed_file_length.</li>
+          <li>Autres : twitter_fdw, ldap_fdw, s3_fdw (Amazon S3), www_fdw, PGStrom (GPU).</li>
+          <li>Multicorn (Python) : sqlalchemyfdw, fsfdw, csvfdw, rssfdw, hivefdw.</li>
         </ul>
     </div>
 
