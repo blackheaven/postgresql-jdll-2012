@@ -265,3 +265,8 @@ h1 {
     -o-transform:      translateZ(50px);
     transform:         translateZ(50px);
 }
+
+code.small
+{
+    font-size: 24px;
+}

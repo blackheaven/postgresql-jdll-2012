@@ -173,17 +173,61 @@ $ sudo yum install postgresql-server</code></pre>
 
     <div id="explain" class="step" data-x="2000" data-y="-1000" data-rotate="90" data-scale="2">
         <h1>EXPLAIN</h1>
-        Explications
+        <ul>
+          <li>Détaille une requête,</li>
+          <li>Affiche les coûts (estimés et réels),</li>
+          <li>Permet l'optimisation des requêtes,</li>
+          <li>Affichage de chaque noeud de traitement.</li>
+      </ul>
+
+        <pre><code>EXPLAIN ANALYSE requete;</code></pre>
     </div>
 
     <div id="explain2" class="step" data-x="0200" data-y="0700" data-rotate="-65" data-scale="1">
         <h1>EXPLAIN</h1>
-        Explications
+        <pre><code>EXPLAIN ANALYSE SELECT O.*
+FROM customers C, orders O
+WHERE O.customerid = C.customerid;</code></pre>
+<pre><code class="small"> Hash Join  (cost=915.00..1429.00 rows=12000 width=30)
+                   (actual time=60.494..114.822 rows=12000 loops=1)
+   Hash Cond: (o.customerid = c.customerid)
+   ->  Seq Scan on orders o  (cost=0.00..214.00 rows=12000 width=30)
+                                              (actual time=0.012..16.502 rows=12000 loops=1)
+   ->  Hash  (cost=665.00..665.00 rows=20000 width=4)
+                   (actual time=60.458..60.458 rows=20000 loops=1)
+         Buckets: 2048  Batches: 1  Memory Usage: 469kB
+         ->  Seq Scan on customers c  (cost=0.00..665.00 rows=20000 width=4)
+                                                  (actual time=0.008..30.644 rows=20000 loops=1)
+ Total runtime: 129.912 ms</code></pre>
     </div>
 
     <div id="explain3" class="step" data-x="2800" data-y="1000" data-rotate="65" data-scale="2">
         <h1>EXPLAIN</h1>
-        Explications
+        <pre><code>EXPLAIN ANALYSE
+SELECT C.customerid, SUM(O.totalamount) gain
+FROM customers C, orders O
+WHERE O.customerid = C.customerid
+GROUP BY C.customerid ORDER BY gain DESC;</code></pre>
+    </div>
+
+    <div id="explain4" class="step" data-x="2800" data-y="1000" data-rotate="65" data-scale="2">
+<pre><code class="small">
+ Sort  (cost=2817.54..2847.54 rows=12000 width=10)
+            (actual time=194.181..205.802 rows=8996 loops=1)
+   Sort Key: (sum(o.totalamount))
+   Sort Method: quicksort  Memory: 608kB
+   ->  GroupAggregate  (cost=0.05..2004.49 rows=12000 width=10)
+                                    (actual time=0.077..158.349 rows=8996 loops=1)
+         ->  Merge Join  (cost=0.05..1824.49 rows=12000 width=10)
+                                            (actual time=0.054..122.390 rows=12000 loops=1)
+               Merge Cond: (c.customerid = o.customerid)
+               ->  Index Scan using customers_pkey on customers c
+                    (cost=0.00..952.25 rows=20000 width=4)
+                    (actual time=0.021..32.855 rows=20000 loops=1)
+               ->  Index Scan using ix_order_custid on orders o 
+                        (cost=0.00..672.24 rows=12000 width=10)
+                        (actual time=0.018..24.793 rows=12000 loops=1)
+ Total runtime: 217.261 ms</code></pre>
     </div>
 
     <div id="plein-texte" class="step" data-x="2800" data-y="2400" data-rotate="90" data-scale="2">
@@ -327,7 +371,7 @@ filename '/etc/passwd', delimiter ':', null '');</code></pre>
 ORDER BY uid ASC LIMIT 3;</code></pre>
     </div>
 
-    <div id="fdw2" class="step" data-x="3600" data-y="7000" data-rotate="80" data-scale="2">
+    <div id="fdw2" class="step" data-x="5200" data-y="7000" data-rotate="80" data-scale="2">
         <h1>Foreign Data Wrapper : liste</h1>
         <ul>
           <li>Principaux SGBDR : oracle_fdw, mysql_fdw, tds_fdw (Microsoft SQL Server), odbc_fdw, jdbc_fdw.</li>
