@@ -413,6 +413,23 @@ ON messages (jmember(jsonfield,'titre'));</code></pre>
 WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
     </div>
 
+    <div id="asynchrone" class="step" data-x="9000" data-y="7000" data-rotate="80" data-scale="2">
+        <h1>Event Driven Architecture</h1>
+
+        <ul>
+          <li>C10k problem,</li>
+          <li>libpq,</li>
+          <li>depuis la 7.1 (au moins), en 2001.</li>
+        </ul>
+
+        Exemple :
+        <ul>
+          <li>libevent (NGINX),</li>
+          <li>EventMachine (Ruby : Thin, Rack, RoR),</li>
+          <li>ActiveMQ, RabbitMQ, ZeroMQ, etc.</li>
+        </ul>
+    </div>
+
     <!--
         
         So to make a summary of all the possible attributes used to position presentation steps, we have:
