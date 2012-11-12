@@ -382,6 +382,37 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
         </ul>
     </div>
 
+    <div id="nosql" class="step" data-x="6000" data-y="7000" data-rotate="80" data-scale="2">
+        <h1>NoSQL</h1>
+        <ul>
+          <li>API HTTP RESTful (presque) et RPC (ngx_postgres),</li>
+          <li>Support de map/reduce,</li>
+          <li><b>Clé-valeur :</b> modèle actuel,</li>
+          <li><b>Colonne :</b> modèle actuel / hstore (GiST),</li>
+          <li><b>Graphe :</b> PostGIS (GiST),</li>
+          <li><b>Document :</b> JSON (GiST).</li>
+        </ul>
+    </div>
+
+    <div id="nosql2" class="step" data-x="7000" data-y="7000" data-rotate="80" data-scale="2">
+        <h1>NoSQL : hstore</h1>
+        <pre><code>SELECT 'foo=>bar'::hstore;</code></pre>
+        <pre><code>SELECT doc -> ‘text’ as tweet,
+doc -> ‘created_at’ as created_at
+FROM tweets
+WHERE doc @> ‘created_at=>00001323446095’;</code></pre>
+    </div>
+
+    <div id="nosql3" class="step" data-x="8000" data-y="7000" data-rotate="80" data-scale="2">
+        <h1>NoSQL : JSON</h1>
+        <pre><code>SELECT json_array_agg(...) FROM ...</code></pre>
+        <pre><code>SELECT json_object_agg(...) FROM ...</code></pre>
+        <pre><code>CREATE INDEX clef_in_json
+ON messages (jmember(jsonfield,'titre'));</code></pre>
+        <pre><code>SELECT * FROM messages
+WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
+    </div>
+
     <!--
         
         So to make a summary of all the possible attributes used to position presentation steps, we have:
