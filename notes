@@ -1,0 +1,126 @@
+Introduction
+    Etudiants dans deux écoles distinctes
+    Membres de PostgreSQLFr qui fait la promotion de PG dans le monde francophone
+    Dernier PG Day Fr 2012 à Lyon en Juin
+    Présantation orientée développeurs
+-------------------------------------------------- 1m
+
+Ce que contient cette présentation
+    Les pièges de VACUUM
+    Les problématiques demandées coramment au SGBDR (plein texte, procédures stockées et triggers)
+    PostgreSQL a un grand nombre d'extensions et de possibilités
+    Rapport avec NoSQL
+-------------------------------------------------- 1m30
+
+Ce que ne contient pas cette présentation
+    De base configuré avec les ressources minimales à son lancement
+    Benchmarks non-exhaustif même avec Dell DVD Store 2
+    Performannces variables selon les applications et les configurations (plus de 200 options)
+    Posez des questions !
+-------------------------------------------------- 1m
+
+Historique
+    Stonebraker : de nombreux SGBDR (Vertica, Streambase, Illustra, VoltDB), à Berkley
+    1986 : renaissance (Post Ingres)
+-------------------------------------------------- 30s
+
+Caractéristiques
+    ISC = juste une licence de non responsabilité
+    les développeurs savent que vous tenez a vos données
+    5 versions majeurs (nécessité de relancer les tests lors des changements)
+    pas besoin de tests entre les mineurs
+    Une majeure tout les 12-18 mois, 5 ans de support
+-------------------------------------------------- 1m30
+
+Installation
+    Une ou deux commandes en plus sous les distributions à RPM
+    Mettre un mot de passe et c'est tout !
+-------------------------------------------------- 30s
+
+EXPLAIN 1/4
+    Exemple (1/2) diappo suivante
+-------------------------------------------------- 30s
+
+EXPLAIN 2/4
+    Trouver toute les commandes avec le client associé
+    cost : estimation (min..max), parametrable, nb de ligne
+    actual : résultat obtenu
+    Memory / Time
+-------------------------------------------------- 1m30s
+
+EXPLAIN 3/4
+    Lister les meilleurs clients (ceux qui ont le plus dépensé)
+    Résultat diappo suivante
+-------------------------------------------------- 30s
+
+EXPLAIN 4/4
+-------------------------------------------------- 30s
+
+Recherche plein-texte : classique
+    Thème classique, souvent réalisé côté client SGBDR
+    Incomplet (ne trouve pas 'travaux') et lent
+-------------------------------------------------- 30s
+
+Recherche plein-texte : le contenua
+    Analyseur : Découpage en Jeton (mot)
+    Dictionnaire : enlever les mots vide par rapport à une langue
+    Voire à un domaine (ex : le ciment pour un mâçon)
+-------------------------------------------------- 1m
+
+Recherche plein-texte : la requête
+    Création d'un automate de & (ET) et de | (OU)
+    Construit un automate
+    Plus l'expression est grande plus elle est rapide par rapport à des AND et des OR
+-------------------------------------------------- 30s
+
+Recherche plein-texte : le choc
+    Possibilité de mettre un rang (ts_rank)
+    Possibilité de surligner (ts_headline), en HTML par exemple
+    Recalcul à chaque requête : un peu lent, non ?
+-------------------------------------------------- 30s
+
+Recherche plein-texte : la vitesse
+-------------------------------------------------- 1m30s
+
+PGXN
+    Simplification de l'installation
+-------------------------------------------------- 1m
+
+PGXN Client
+    ext = nom de l'extension
+    db = base
+    Outil pour les allergiques à make
+-------------------------------------------------- 30s
+
+PostGIS
+    Application phare
+    La plus avancée existante
+    Dans les directives informatique de l'Etat français
+    Graphe : rues d'une ville, lien entre les pages du web
+-------------------------------------------------- 1m30s
+
+Foreign Data Wrapper
+    Impossible de mettre des contrainte car aucun contrôle sur le stockage
+    SQL : Voir les utilisateurs de /etc/passwd
+-------------------------------------------------- 1m
+
+Foreign Data Wrapper : liste
+    Multicorn : surcouche qui fournit une API en Python
+    sqlalchemy : vers d'autre SGBDR
+    fsfdw : vers le système de fichiers
+    hivefdw : Apache Hive (outil Hadoop)
+-------------------------------------------------- 30s
+
+NoSQL
+    Map&Reduce : existe depuis 40 ans donc à la mode depuis 3 ans
+-------------------------------------------------- 30s
+NoSQL : hstore
+    @> utilisation forcée de l'index GiST
+    récupère le contenu et le timestamp des tweets créés après un repère tempore
+-------------------------------------------------- 30s
+NoSQL : JSON
+-------------------------------------------------- 30s
+Event Driven Architecture
+    C10k problème rapport de Dan Kegel en 1999
+    PCs de plus en plus puissant et incapable de gérer 10.000 connexion simultanées
+-------------------------------------------------- 1m
