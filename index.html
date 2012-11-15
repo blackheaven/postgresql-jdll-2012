@@ -188,11 +188,11 @@ $ sudo yum install postgresql-server</code></pre>
     <div id="index2" class="step" data-x="-1100" data-y="-0500" data-scale="1">
         <h1>INDEX</h1>
         <ul>
-			<li>Index uniques</li>
-			<li>Index multicolonnes</li>
-			<li>CLUSTER: réorganisation de la table selon l'index</li>              
-			<li>Verrou sur la table (modification impossible)</li>        
-			<li>Plusieurs types: B-tree, GIN, Hash, GiST</li>        
+            <li>Index uniques</li>
+            <li>Index multicolonnes</li>
+            <li>CLUSTER: réorganisation de la table selon l'index</li>
+            <li>Verrou sur la table (modification impossible)</li>
+            <li>Plusieurs types: B-tree, GIN, Hash, GiST</li>
         </ul>
     </div>
 
@@ -294,11 +294,113 @@ GROUP BY C.customerid ORDER BY gain DESC;</code></pre>
 WHERE contenu LIKE '%messages%';</code></pre>
     </div>
 
-    <div id="plein-texte2" class="step" data-x="-3000" data-y="-2000" data-scale="1">
+    <div id="plein-texte2" class="step" data-x="-3000" data-y="-3000" data-scale="1">
         <h1>Recherche plein-texte 2.0</h1>
         <pre><code>SELECT * FROM messages
 WHERE to_tsvector(contenu)
 @@ to_tsquery('cat & rat');</code></pre>
+    </div>
+
+    <div id="pgplsql" class="step" data-x="-3000" data-y="-2000" data-scale="1">
+    <h1>Procédures stockées</h1>
+
+        <ul>
+            <li>Compense les manques de SQL (instructions)</li>
+            <li>Boucles, variables, curseurs, exceptions</li>
+            <li>PlpgSQL, Pl/Tcl, Pl/Perl et Pl/Python</li>
+        </ul>
+
+            <pre><code>SELECT * INTO maligne </code></pre>
+            <pre><code>FROM livre WHERE titre = l_titre;</code></pre>
+            <pre><code>IF NOT FOUND THEN</code></pre>
+            <pre><code>RAISE EXCEPTION 'livre % introuvable', l_titre;</code></pre>
+            <pre><code>END IF;</code></pre>
+    </div>
+
+    <div id="triggers" class="step" data-x="-3000" data-y="-1000" data-scale="1">
+    <h1>Triggers</h1>
+
+        <ul>
+            <li>Déclenchement automatique d'une procédure</li>
+            <li>Avant ou après</li>
+            <li>SELECT, UPDATE, REMOVE</li>
+        </ul>
+
+            <pre><code>CREATE TRIGGER trig_biblio</code></pre>
+            <pre><code>AFTER INSERT OR UPDATE OR DELETE ON livre</code></pre>
+            <pre><code>FOR EACH ROW EXECUTE </code></pre>
+            <pre><code>PROCEDURE mise_a_jour_biblio();</code></pre>
+    </div>
+
+    <div id="replication1" class="step" data-x="4500" data-y="-1500" data-scale="1">
+        <h1>Réplication</h1>
+
+        Plusieurs objectifs:
+        <ul>
+            <li>Sauvegarde</li>
+            <li>Synchronisation</li>
+            <li>Haute-disponibilité</li>
+        </ul>
+
+        <br />
+        Plusieurs moyens :
+        <ul>
+            <li>Réplication par journaux (log shipping)</li>
+            <li>Réplication par triggers</li>
+            <li>Réplication des instructions</li>
+        </ul>
+    </div>
+
+    <div id="replication2" class="step" data-x="6000" data-y="-1500" data-scale="1">
+        <h2>Réplication par journaux XLOG</h2>
+        <ul>
+            <li>Pas d'outils externe</li>
+            <li>Simple à mettre en place</li>
+            <li>Serveur fils inaccessible</li>
+        </ul>
+
+        <br />
+        <h2>Réplication par triggers</h2>
+        <ul>
+            <li>Outils externes: Slony/Londiste</li>
+            <li>Pas de synchronisation de la structure des tables</li>
+            <li>Faible documentation</li>
+            <li>Serveur fils en lecture seule</li>
+        </ul>
+
+        <br />
+        <h2>Réplication des instructions</h2>
+        <ul>
+            <li>Envoi des requêtes à tous les serveurs</li>
+            <li>pgPool-II: <i>poller</i> de connexions</li>
+            <li>Le plus simple à utiliser</li>
+            <li>Serveurs fils accessibles via le <i>pooler</i></li>
+        </ul>
+    </div>
+
+    <div id="pgadmin" class="step" data-x="-1100" data-y="0" data-scale="1">
+        <h1>PgAdmin</h1>
+
+        Outil graphique de référence:
+        <ul>
+            <li>Visualisation des données</li>
+            <li>Édition des objets (tables, lignes, utilisateurs, ...)</li>
+            <li>Modification des fichiers de configuration</li>
+            <li>Suit l'évolution de Postgres</li>
+            <li>Plugins</li>
+        </ul>
+    </div>
+
+    <div id="surveillance" class="step" data-x="-600" data-y="500" data-scale="1">
+        <h1>Surveillance</h1>
+
+        <ul>
+            <li>Journaux: connexions, erreurs de requêtes et durées d'exécution</li>
+            <li>Nagiosplugin et postBix pour Zabbix</li>
+            <li>PgBadger (ex-pgFouine): rapports d'analyse des logs</li>
+            <li>Postgres System Impact report: analyse de logs</li>
+            <li>vues pg_stat* et modules pgStats </li>
+        </ul>
     </div>
 
     <div id="pgxn" class="step" data-x="-3000" data-y="1000" data-scale="1">
@@ -360,81 +462,9 @@ filename '/etc/passwd', delimiter ':', null '');</code></pre>
 ORDER BY uid ASC LIMIT 3;</code></pre>
     </div>
 
-    <div id="replication1" class="step" data-x="4500" data-y="-1500" data-scale="1">
-        <h1>Réplication</h1>
-
-        Plusieurs objectifs:
-        <ul>
-            <li>Sauvegarde</li>
-            <li>Synchronisation</li>
-            <li>Haute-disponibilité</li>
-        </ul>
-
-        <br />
-        Plusieurs moyens :
-        <ul>
-            <li>Réplication par journaux (log shipping)</li>
-            <li>Réplication par triggers</li>
-            <li>Réplication des instructions</li>
-        </ul>
-    </div>
-
-
-    <div id="replication2" class="step" data-x="6000" data-y="-1500" data-scale="1">
-        <h2>Réplication par journaux XLOG</h2>
-        <ul>
-            <li>Pas d'outils externe</li>
-            <li>Simple à mettre en place</li>
-            <li>Serveur fils inaccessible</li>
-        </ul>
-
-		<br />
-        <h2>Réplication par triggers</h2>
-        <ul>
-            <li>Outils externes: Slony/Londiste</li>
-            <li>Pas de synchronisation de la structure des tables</li>
-            <li>Faible documentation</li>
-            <li>Serveur fils en lecture seule</li>
-        </ul>
-        
-		<br />
-        <h2>Réplication des instructions</h2>
-        <ul>
-            <li>Envoi des requêtes à tous les serveurs</li>
-            <li>pgPool-II: <i>poller</i> de connexions</li>
-            <li>Le plus simple à utiliser</li>
-            <li>Serveurs fils accessibles via le <i>pooler</i></li>
-        </ul>
-    </div>
-
-    <div id="pgadmin" class="step" data-x="-1100" data-y="0" data-scale="1">
-        <h1>PgAdmin</h1>
-
-        Outil graphique de référence:
-        <ul>
-            <li>Visualisation des données</li>
-            <li>Édition des objets (tables, lignes, utilisateurs, ...)</li>
-            <li>Modification des fichiers de configuration</li>
-            <li>Suit l'évolution de Postgres</li>
-            <li>Plugins</li>
-        </ul>
-    </div>
-
-    <div id="surveillance" class="step" data-x="-600" data-y="500" data-scale="1">
-        <h1>Surveillance</h1>
-
-        <ul>
-            <li>Journaux: connexions, erreurs de requêtes et durées d'exécution</li>
-            <li>Nagiosplugin et postBix pour Zabbix</li>
-            <li>PgBadger (ex-pgFouine): rapports d'analyse des logs</li>
-            <li>Postgres System Impact report: analyse de logs</li>
-            <li>vues pg_stat* et modules pgStats </li>
-        </ul>
-    </div>
-
     <div id="conclusion" class="step" data-x="2700" data-y="1000" data-scale="1">
         <h1>Vers l'infini et au delà</h1>
-		<br/>
+        <br/>
         <ul>
           <li><b>Association francophone :</b> postgresql.fr/</li>
           <li><b>Manifestations :</b> RMLL, FOSDEM, Solutions Linux et <b>PgDay-France</b></li>
@@ -450,12 +480,12 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
     <div id="nosql" class="step" data-x="7000" data-y="1000" data-scale="1">
         <h1>NoSQL</h1>
         <ul>
-          <li>API HTTP RESTful (presque) et RPC (ngx_postgres),</li>
-          <li>Support de map/reduce,</li>
-          <li><b>Clé-valeur :</b> modèle actuel,</li>
-          <li><b>Colonne :</b> modèle actuel / hstore (GiST),</li>
-          <li><b>Graphe :</b> PostGIS (GiST),</li>
-          <li><b>Document :</b> JSON (GiST).</li>
+          <li>API HTTP RESTful (presque) et RPC (ngx_postgres)</li>
+          <li>Support de map/reduce</li>
+          <li><b>Clé-valeur :</b> modèle actuel</li>
+          <li><b>Colonne :</b> modèle actuel / hstore (GiST)</li>
+          <li><b>Graphe :</b> PostGIS (GiST)</li>
+          <li><b>Document :</b> JSON (GiST)</li>
         </ul>
     </div>
 
@@ -482,16 +512,16 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
         <h1>Event Driven Architecture</h1>
 
         <ul>
-          <li>C10k problem,</li>
-          <li>libpq,</li>
-          <li>depuis la 7.1 (au moins), en 2001.</li>
+          <li>C10k problem</li>
+          <li>libpq</li>
+          <li>depuis la 7.1 (au moins), en 2001</li>
         </ul>
 
         Exemple :
         <ul>
-          <li>libevent (NGINX),</li>
-          <li>EventMachine (Ruby : Thin, Rack, RoR),</li>
-          <li>Node.js,</li>
+          <li>libevent (NGINX)</li>
+          <li>EventMachine (Ruby : Thin, Rack, RoR)</li>
+          <li>Node.js</li>
           <li>ActiveMQ, RabbitMQ, ZeroMQ, etc.</li>
         </ul>
     </div>
@@ -511,42 +541,11 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
         CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
 
     -->
-    
-    
-    
-    <div id="pgplsql" class="step" data-x="12000" data-y="4000" data-scale="1">
-    <h1>Procédures stockées</h1>
-    
-    	<ul>
-			<li>Compense les manques de SQL (instructions)</li>    	
-			<li>Boucles, variables, curseurs, exceptions</li>    	
-			<li>PlpgSQL, Pl/Tcl, Pl/Perl et Pl/Python</li>    	
-		</ul>	
-			
-			<pre><code>SELECT * INTO maligne </code></pre>
-			<pre><code>FROM livre WHERE titre = l_titre;</code></pre>
-			<pre><code>IF NOT FOUND THEN</code></pre>
-    		<pre><code>RAISE EXCEPTION 'livre % introuvable', l_titre;</code></pre>
-			<pre><code>END IF;</code></pre>
-    </div>
-    
-    <div id="triggers" class="step" data-x="12000" data-y="6000" data-scale="1">
-    <h1>Triggers</h1>
-    
-    	<ul>
-			<li>Déclenchement automatique d'une procédure</li>    	
-			<li>Avant ou après</li>    	
-			<li>SELECT, UPDATE, REMOVE</li>    	
-		</ul>	
-			
-			<pre><code>CREATE TRIGGER trig_biblio</code></pre>
-    		<pre><code>AFTER INSERT OR UPDATE OR DELETE ON livre</code></pre>
-    		<pre><code>FOR EACH ROW EXECUTE </code></pre>
-    		<pre><code>PROCEDURE mise_a_jour_biblio();</code></pre>
-    </div>
-    
-    
-    
+
+
+
+
+
     <div id="overview" class="step" data-x="1000" data-y="0500" data-scale="15">
         <img src="img/logo.svg" width="90%" height="90%" />
     </div>
