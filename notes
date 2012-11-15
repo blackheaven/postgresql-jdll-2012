@@ -66,29 +66,21 @@ EXPLAIN 4/4
 
 Recherche plein-texte : classique
     Thème classique, souvent réalisé côté client SGBDR
-    Incomplet (ne trouve pas 'travaux') et lent
+    Incomplet (variations des mots) et lent
 -------------------------------------------------- 30s
+Recherche plein-texte 2.0
+    le contenua
+        Analyseur : Découpage en Jeton (mot)
+        Dictionnaire : enlever les mots vide par rapport à une langue
+        Voire à un domaine (ex : le ciment pour un mâçon)
+    la requête
+        Création d'un automate de & (ET) et de | (OU)
+        Plus l'expression est grande plus elle est rapide par rapport à des AND et des OR
 
-Recherche plein-texte : le contenua
-    Analyseur : Découpage en Jeton (mot)
-    Dictionnaire : enlever les mots vide par rapport à une langue
-    Voire à un domaine (ex : le ciment pour un mâçon)
--------------------------------------------------- 1m
-
-Recherche plein-texte : la requête
-    Création d'un automate de & (ET) et de | (OU)
-    Construit un automate
-    Plus l'expression est grande plus elle est rapide par rapport à des AND et des OR
--------------------------------------------------- 30s
-
-Recherche plein-texte : le choc
     Possibilité de mettre un rang (ts_rank)
     Possibilité de surligner (ts_headline), en HTML par exemple
-    Recalcul à chaque requête : un peu lent, non ?
--------------------------------------------------- 30s
-
-Recherche plein-texte : la vitesse
--------------------------------------------------- 1m30s
+    Recalcul à chaque requête : possibilité de placer des INDEX GiST et GIN
+-------------------------------------------------- 1m
 
 PGXN
     Simplification de l'installation
@@ -121,6 +113,7 @@ Foreign Data Wrapper : liste
 
 NoSQL
     Map&Reduce : existe depuis 40 ans donc à la mode depuis 3 ans
+    unlogged table : idéale pour les données non-persistantes (cache/temporaires)
 -------------------------------------------------- 30s
 NoSQL : hstore
     @> utilisation forcée de l'index GiST

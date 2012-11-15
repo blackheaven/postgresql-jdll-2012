@@ -121,7 +121,7 @@
         <h1>Caractéristiques</h1>
         <ul>
           <li>License : PostgreSQL (ISC),</li>
-          <li>Versions : 8.3, 8.4, 9.0, 9.1, 9.2 (et bientôt 9.3),</li>
+          <li>Versions : 8.3, 8.4, 9.0, 9.1, 9.2 (et 9.3 dans 10 mois),</li>
           <li>Bon support de SQL:2011 (160+/179), SQL/MED,</li>
           <li>Support ACID/MVCC,</li>
           <li>PostgreSQL Global Development Group :</li>
@@ -131,7 +131,7 @@
             <li>40 contributeurs</li>
             <li>100 contributeurs occasionnels</li>
           </ul>
-          <li>Très peu de limitations : 32 To par tables, 1 To par champs, 1.6 To par lignes et 250 à 1.600 colonnes par tabes.</li>
+          <li>Très peu de limitations : 32 To par tables, 1 Go par champs, 1.6 To par lignes et 250 à 1.600 colonnes par tabes.</li>
         </ul>
     </div>
 
@@ -282,50 +282,16 @@ GROUP BY C.customerid ORDER BY gain DESC;</code></pre>
     </div>
 
     <div id="plein-texte" class="step" data-x="-3000" data-y="-4000" data-scale="1">
-        <h1>Recherche plein-texte : classique</h1>
+        <h1>Recherche plein-texte</h1>
         <pre><code>SELECT * FROM messages
-WHERE contenu LIKE '%travail%';</code></pre>
+WHERE contenu LIKE '%messages%';</code></pre>
     </div>
 
-    <div id="plein-texte2" class="step" data-x="-3000" data-y="-3000" data-scale="1">
-        <h1>Recherche plein-texte : le contenu</h1>
-        <pre><code>SELECT to_tsvector('a fat cat sat on
-a mat and ate a fat rat');</code></pre>
-        donne
-        <pre><code>'ate':9 'cat':3 'fat':2,11 'mat':7 'rat':12
-'sat':4</code></pre>
-    </div>
-
-    <div id="plein-texte3" class="step" data-x="-3000" data-y="-2000" data-scale="1">
-        <h1>Recherche plein-texte : la requête</h1>
-        <pre><code>SELECT to_tsquery('cat & rat');</code></pre>
-        donne
-        <pre><code>'cat' & 'rat'</code></pre>
-    </div>
-
-    <div id="plein-texte4" class="step" data-x="-3000" data-y="-1000" data-scale="1">
-        <h1>Recherche plein-texte : le choc</h1>
+    <div id="plein-texte2" class="step" data-x="-3000" data-y="-2000" data-scale="1">
+        <h1>Recherche plein-texte 2.0</h1>
         <pre><code>SELECT * FROM messages
 WHERE to_tsvector(contenu)
 @@ to_tsquery('cat & rat');</code></pre>
-    </div>
-
-    <div id="plein-texte5" class="step" data-x="-3000" data-y="0" data-scale="1">
-        <h1>Recherche plein-texte : la vitesse</h1>
-        <ul>
-          <li>GiST</li>
-          <ul>
-            <li>Index à perte (faux positifs),</li>
-            <li>3 fois plus rapide à se construire,</li>
-            <li>3 fois plus lent lors de la recherche.</li>
-          </ul>
-          <li>GIN</li>
-          <ul>
-            <li>Consommation disque 2 à 3 fois plus grande,</li>
-            <li>Mise à jour légèrement plus longue (10 fois plus longue si la mise à jour automatique est désactivée),</li>
-            <li>Performances de construction liée à la mémoire disponible,</li>
-          </ul>
-        </ul>
     </div>
 
     <div id="pgxn" class="step" data-x="-3000" data-y="1000" data-scale="1">
