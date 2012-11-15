@@ -64,7 +64,7 @@
         <span class="footnote">par Geoffroy BAILLY et Gautier DI FOLCO</span>
     </div>
 
-    <div id="contenu" class="step" data-x="3700" data-y="-3950" data-rotate="32" data-scale="2">
+    <div id="contenu" class="step" data-x="3800" data-y="-4000" data-rotate="-32" data-scale="1">
         <h1>Ce que contient cette présentation</h1>
         <ul>
           <li>Présentation</li>
@@ -93,7 +93,7 @@
         </ul>
     </div>
 
-    <div id="non-contenu" class="step" data-x="4400" data-y="-1600" data-rotate="95" data-scale="2">
+    <div id="non-contenu" class="step" data-x="4500" data-y="-2500" data-rotate="-32" data-scale="1">
         <h1>Ce que ne contient pas cette présentation</h1>
         <ul>
           <li>Introduction au SQL</li>
@@ -117,7 +117,7 @@
         </ul>
     </div>
 
-    <div id="caracteristiques" class="step" data-x="150" data-y="2000" data-scale="1">
+    <div id="caracteristiques" class="step" data-x="4000" data-y="3000" data-scale="1">
         <h1>Caractéristiques</h1>
         <ul>
           <li>License : PostgreSQL (ISC),</li>
@@ -135,7 +135,7 @@
         </ul>
     </div>
 
-    <div id="entreprises" class="step" data-x="1500" data-y="2000" data-scale="1">
+    <div id="entreprises" class="step" data-x="4000" data-y="4000" data-scale="1">
         <h1>Entreprises</h1>
 
         Support :
@@ -162,13 +162,13 @@
         </ul>
     </div>
 
-    <div id="installation" class="step" data-x="-500" data-y="2500" data-scale="1">
+    <div id="installation" class="step" data-x="-500" data-y="2420" data-rotate="-20" data-scale="1">
         <h1>Installation</h1>
         <pre class="bash"><code>$ sudo apt-get install postgresql
 $ sudo yum install postgresql-server</code></pre>
     </div>
 
-    <div id="index" class="step" data-x="3200" data-y="-200" data-rotate="90" data-scale="2">
+    <div id="index" class="step" data-x="-1100" data-y="-1500" data-scale="1">
         <h1>INDEX</h1>
         <ul>
             <li>Création d'un arbre de recherche</li>
@@ -179,17 +179,17 @@ $ sudo yum install postgresql-server</code></pre>
         </ul>
     </div>
 
-    <div id="analyse" class="step" data-x="-1100" data-y="-1400" data-scale="1">
+    <div id="analyse" class="step" data-x="-1100" data-y="-1000" data-scale="1">
         <h1>ANALYZE</h1>
         Met à jour les statistiques sur les données pour l'optimisateur de requête
     </div>
 
-    <div id="index2" class="step" data-x="-0800" data-y="900" data-rotate="110" data-scale="3">
+    <div id="index2" class="step" data-x="-1100" data-y="-0500" data-scale="1">
         <h1>INDEX</h1>
         Explications plus avancées
     </div>
 
-    <div id="vacuum2" class="step" data-x="-1500" data-y="-2400" data-rotate="180" data-scale="1">
+    <div id="vacuum" class="step" data-x="3300" data-y="-1400" data-scale="1">
         <h1>VACUUM</h1>
         <ul>
             <li>Recherche l'espace libre d'une table (lignes mortes)</li>
@@ -198,7 +198,7 @@ $ sudo yum install postgresql-server</code></pre>
         </ul>
     </div>
 
-    <div id="vacuum3" class="step" data-x="3400" data-y="-2700" data-scale="1">
+    <div id="vacuum2" class="step" data-x="3300" data-y="-0900" data-scale="1">
         <h1>VACUUM</h1>
         <ul>
             <li>Un mode classique</li>
@@ -212,7 +212,7 @@ $ sudo yum install postgresql-server</code></pre>
         </ul>
     </div>
 
-    <div id="vacuum4" class="step" data-x="0600" data-y="-1000" data-rotate="-90" data-scale="2">
+    <div id="vacuum3" class="step" data-x="3400" data-y="-0400" data-scale="1">
         <h1>AUTO_VACUUM</h1>
         <ul>
             <li>deamon d'automatisation VACUUM/ANALYZE</li>
@@ -222,7 +222,7 @@ $ sudo yum install postgresql-server</code></pre>
         </ul>
     </div>
 
-    <div id="explain" class="step" data-x="2000" data-y="-1000" data-rotate="90" data-scale="2">
+    <div id="explain" class="step" data-x="1400" data-y="1500" data-scale="1">
         <h1>EXPLAIN</h1>
         <ul>
           <li>Détaille une requête,</li>
@@ -234,7 +234,7 @@ $ sudo yum install postgresql-server</code></pre>
         <pre><code>EXPLAIN ANALYSE requete;</code></pre>
     </div>
 
-    <div id="explain2" class="step" data-x="0200" data-y="0700" data-rotate="-65" data-scale="1">
+    <div id="explain2" class="step" data-x="1400" data-y="2500" data-scale="1">
         <h1>EXPLAIN</h1>
         <pre><code>EXPLAIN ANALYSE SELECT O.*
 FROM customers C, orders O
@@ -252,7 +252,7 @@ WHERE O.customerid = C.customerid;</code></pre>
  Total runtime: 129.912 ms</code></pre>
     </div>
 
-    <div id="explain3" class="step" data-x="2800" data-y="1000" data-rotate="65" data-scale="2">
+    <div id="explain3" class="step" data-x="1400" data-y="3500" data-scale="1">
         <h1>EXPLAIN</h1>
         <pre><code>EXPLAIN ANALYSE
 SELECT C.customerid, SUM(O.totalamount) gain
@@ -261,7 +261,7 @@ WHERE O.customerid = C.customerid
 GROUP BY C.customerid ORDER BY gain DESC;</code></pre>
     </div>
 
-    <div id="explain4" class="step" data-x="2800" data-y="1000" data-rotate="65" data-scale="2">
+    <div id="explain4" class="step" data-x="1400" data-y="4500" data-scale="1">
 <pre><code class="small">
  Sort  (cost=2817.54..2847.54 rows=12000 width=10)
             (actual time=194.181..205.802 rows=8996 loops=1)
@@ -281,13 +281,13 @@ GROUP BY C.customerid ORDER BY gain DESC;</code></pre>
  Total runtime: 217.261 ms</code></pre>
     </div>
 
-    <div id="plein-texte" class="step" data-x="2800" data-y="2400" data-rotate="90" data-scale="2">
+    <div id="plein-texte" class="step" data-x="-3000" data-y="-4000" data-scale="1">
         <h1>Recherche plein-texte : classique</h1>
         <pre><code>SELECT * FROM messages
 WHERE contenu LIKE '%travail%';</code></pre>
     </div>
 
-    <div id="plein-texte2" class="step" data-x="2700" data-y="3700" data-rotate="100" data-scale="1">
+    <div id="plein-texte2" class="step" data-x="-3000" data-y="-3000" data-scale="1">
         <h1>Recherche plein-texte : le contenu</h1>
         <pre><code>SELECT to_tsvector('a fat cat sat on
 a mat and ate a fat rat');</code></pre>
@@ -296,21 +296,21 @@ a mat and ate a fat rat');</code></pre>
 'sat':4</code></pre>
     </div>
 
-    <div id="plein-texte3" class="step" data-x="2000" data-y="4800" data-scale="2">
+    <div id="plein-texte3" class="step" data-x="-3000" data-y="-2000" data-scale="1">
         <h1>Recherche plein-texte : la requête</h1>
         <pre><code>SELECT to_tsquery('cat & rat');</code></pre>
         donne
         <pre><code>'cat' & 'rat'</code></pre>
     </div>
 
-    <div id="plein-texte4" class="step" data-x="1000" data-y="3000" data-rotate="-90" data-scale="2">
+    <div id="plein-texte4" class="step" data-x="-3000" data-y="-1000" data-scale="1">
         <h1>Recherche plein-texte : le choc</h1>
         <pre><code>SELECT * FROM messages
 WHERE to_tsvector(contenu)
 @@ to_tsquery('cat & rat');</code></pre>
     </div>
 
-    <div id="plein-texte5" class="step" data-x="-2500" data-y="-4200" data-scale="2">
+    <div id="plein-texte5" class="step" data-x="-3000" data-y="0" data-scale="1">
         <h1>Recherche plein-texte : la vitesse</h1>
         <ul>
           <li>GiST</li>
@@ -328,42 +328,7 @@ WHERE to_tsvector(contenu)
         </ul>
     </div>
 
-    <div id="pl" class="step" data-x="-4200" data-y="-2200" data-rotate="90" data-scale="2">
-        <h1>PL</h1>
-        Explications
-    </div>
-
-    <div id="fdw_" class="step" data-x="-2200" data-y="-2600" data-rotate="110" data-scale="2">
-        <h1>Triggers</h1>
-        Explications
-    </div>
-
-    <div id="fdw2_" class="step" data-x="-3800" data-y="-400" data-rotate="75" data-scale="2">
-        <h1>Triggers</h1>
-        Explications
-    </div>
-
-    <div id="fdw3_" class="step" data-x="-2400" data-y="-200" data-rotate="-100" data-scale="2">
-        <h1>Triggers</h1>
-        Explications
-    </div>
-
-    <div id="fdw4_" class="step" data-x="-3400" data-y="1200" data-rotate="80" data-scale="2">
-        <h1>Triggers</h1>
-        Explications
-    </div>
-
-    <div id="fdw5" class="step" data-x="-2000" data-y="2100" data-scale="2">
-        <h1>FDW</h1>
-        Explications
-    </div>
-
-    <div id="extensions" class="step" data-x="5000" data-y="-4800" data-rotate="-120" data-scale="2">
-        <h1>Extensions</h1>
-        IMG
-    </div>
-
-    <div id="pgxn" class="step" data-x="5800" data-y="-3200" data-rotate="-80" data-scale="2">
+    <div id="pgxn" class="step" data-x="-3000" data-y="1000" data-scale="1">
         <h1>PGXN</h1>
         <ul>
           <li>PostgreSQL Extension network,</li>
@@ -381,14 +346,14 @@ WHERE to_tsvector(contenu)
         </ul>
     </div>
 
-    <div id="pgxn-client" class="step" data-x="5100" data-y="-0200" data-rotate="-60" data-scale="2">
+    <div id="pgxn-client" class="step" data-x="-2700" data-y="2000" data-scale="1">
         <h1>PGXN Client</h1>
         Utilisation :
         <pre><code class="bash">$ pgxn install ext
 $ pgxn load -d db ext</code></pre>
     </div>
 
-    <div id="postgis" class="step" data-x="3400" data-y="3600" data-rotate="-80" data-scale="2">
+    <div id="postgis" class="step" data-x="1000" data-y="-1500" data-scale="1">
         <h1>PostGIS</h1>
         <ul>
           <li>Standards ISO et OGC : ISO 19125, SQL/MM, SFS 1.2.0.</li>
@@ -402,7 +367,7 @@ $ pgxn load -d db ext</code></pre>
         </ul>
     </div>
 
-    <div id="fdw" class="step" data-x="3600" data-y="7000" data-rotate="80" data-scale="2">
+    <div id="fdw" class="step" data-x="1000" data-y="-0500" data-scale="1">
         <h1>Foreign Data Wrapper</h1>
         <ul>
           <li>Standard  SQL/MED (SQL Management of External Data),</li>
@@ -422,7 +387,7 @@ filename '/etc/passwd', delimiter ':', null '');</code></pre>
 ORDER BY uid ASC LIMIT 3;</code></pre>
     </div>
 
-    <div id="fdw2" class="step" data-x="5200" data-y="7000" data-rotate="80" data-scale="2">
+    <div id="fdw2" class="step" data-x="1000" data-y="0500" data-scale="1">
         <h1>Foreign Data Wrapper : liste</h1>
         <ul>
           <li>Principaux SGBDR : oracle_fdw, mysql_fdw, tds_fdw (Microsoft SQL Server), odbc_fdw, jdbc_fdw.</li>
@@ -433,56 +398,7 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
         </ul>
     </div>
 
-    <div id="nosql" class="step" data-x="6000" data-y="7000" data-rotate="80" data-scale="2">
-        <h1>NoSQL</h1>
-        <ul>
-          <li>API HTTP RESTful (presque) et RPC (ngx_postgres),</li>
-          <li>Support de map/reduce,</li>
-          <li><b>Clé-valeur :</b> modèle actuel,</li>
-          <li><b>Colonne :</b> modèle actuel / hstore (GiST),</li>
-          <li><b>Graphe :</b> PostGIS (GiST),</li>
-          <li><b>Document :</b> JSON (GiST).</li>
-        </ul>
-    </div>
-
-    <div id="nosql2" class="step" data-x="7000" data-y="7000" data-rotate="80" data-scale="2">
-        <h1>NoSQL : hstore</h1>
-        <pre><code>SELECT 'foo=>bar'::hstore;</code></pre>
-        <pre><code>SELECT doc -> ‘text’ as tweet,
-doc -> ‘created_at’ as created_at
-FROM tweets
-WHERE doc @> ‘created_at=>00001323446095’;</code></pre>
-    </div>
-
-    <div id="nosql3" class="step" data-x="8000" data-y="7000" data-rotate="80" data-scale="2">
-        <h1>NoSQL : JSON</h1>
-        <pre><code>SELECT json_array_agg(...) FROM ...</code></pre>
-        <pre><code>SELECT json_object_agg(...) FROM ...</code></pre>
-        <pre><code>CREATE INDEX clef_in_json
-ON messages (jmember(jsonfield,'titre'));</code></pre>
-        <pre><code>SELECT * FROM messages
-WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
-    </div>
-
-    <div id="asynchrone" class="step" data-x="9000" data-y="7000" data-rotate="80" data-scale="2">
-        <h1>Event Driven Architecture</h1>
-
-        <ul>
-          <li>C10k problem,</li>
-          <li>libpq,</li>
-          <li>depuis la 7.1 (au moins), en 2001.</li>
-        </ul>
-
-        Exemple :
-        <ul>
-          <li>libevent (NGINX),</li>
-          <li>EventMachine (Ruby : Thin, Rack, RoR),</li>
-          <li>Node.js,</li>
-          <li>ActiveMQ, RabbitMQ, ZeroMQ, etc.</li>
-        </ul>
-    </div>
-
-    <div id="replication1" class="step" data-x="12000" data-y="1000" data-rotate="80" data-scale="2">
+    <div id="replication1" class="step" data-x="12000" data-y="1000" data-rotate="80" data-scale="1">
         <h1>Réplication</h1>
 
         Plusieurs objectifs:
@@ -493,7 +409,7 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
         </ul>
 
         <br />
-        Plusieurs moyens:
+        Plusieurs moyens :
         <ul>
             <li>Réplication par journaux (log shipping)</li>
             <li>Réplication par triggers</li>
@@ -502,7 +418,7 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
     </div>
 
 
-    <div id="replication2" class="step" data-x="12000" data-y="3000" data-rotate="80" data-scale="2">
+    <div id="replication2" class="step" data-x="12000" data-y="3000" data-rotate="80" data-scale="1">
         <h2>Réplication par journaux XLOG</h2>
         <ul>
             <li>Pas d'outils externe</li>
@@ -527,9 +443,7 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
         </ul>
     </div>
 
-
-
-    <div id="pgadmin" class="step" data-x="12000" data-y="5000" data-rotate="80" data-scale="2">
+    <div id="pgadmin" class="step" data-x="12000" data-y="5000" data-rotate="80" data-scale="1">
         <h1>PgAdmin</h1>
 
         Outil graphique de référence:
@@ -542,7 +456,7 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
         </ul>
     </div>
 
-    <div id="surveillance" class="step" data-x="12000" data-y="7000" data-rotate="80" data-scale="2">
+    <div id="surveillance" class="step" data-x="12000" data-y="7000" data-rotate="80" data-scale="1">
         <h1>Surveillance</h1>
 
         <ul>
@@ -554,7 +468,7 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
         </ul>
     </div>
 
-    <div id="conclusion" class="step" data-x="12000" data-y="9000" data-rotate="80" data-scale="2">
+    <div id="conclusion" class="step" data-x="12000" data-y="9000" data-rotate="80" data-scale="1">
         <h1>Vers l'infini et au delà</h1>
 
         <ul>
@@ -564,6 +478,55 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
           <li>Developpeurs : blog.guillaume.lelarge.info / tapoueh.org<li>
         </ul>
         <blockquote>Ne restez pas seuls ...</blockquote>
+    </div>
+
+    <div id="nosql" class="step" data-x="6000" data-y="7000" data-rotate="80" data-scale="1">
+        <h1>NoSQL</h1>
+        <ul>
+          <li>API HTTP RESTful (presque) et RPC (ngx_postgres),</li>
+          <li>Support de map/reduce,</li>
+          <li><b>Clé-valeur :</b> modèle actuel,</li>
+          <li><b>Colonne :</b> modèle actuel / hstore (GiST),</li>
+          <li><b>Graphe :</b> PostGIS (GiST),</li>
+          <li><b>Document :</b> JSON (GiST).</li>
+        </ul>
+    </div>
+
+    <div id="nosql2" class="step" data-x="7000" data-y="7000" data-rotate="80" data-scale="1">
+        <h1>NoSQL : hstore</h1>
+        <pre><code>SELECT 'foo=>bar'::hstore;</code></pre>
+        <pre><code>SELECT doc -> ‘text’ as tweet,
+doc -> ‘created_at’ as created_at
+FROM tweets
+WHERE doc @> ‘created_at=>00001323446095’;</code></pre>
+    </div>
+
+    <div id="nosql3" class="step" data-x="8000" data-y="7000" data-rotate="80" data-scale="1">
+        <h1>NoSQL : JSON</h1>
+        <pre><code>SELECT json_array_agg(...) FROM ...</code></pre>
+        <pre><code>SELECT json_object_agg(...) FROM ...</code></pre>
+        <pre><code>CREATE INDEX clef_in_json
+ON messages (jmember(jsonfield,'titre'));</code></pre>
+        <pre><code>SELECT * FROM messages
+WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
+    </div>
+
+    <div id="asynchrone" class="step" data-x="9000" data-y="7000" data-rotate="80" data-scale="1">
+        <h1>Event Driven Architecture</h1>
+
+        <ul>
+          <li>C10k problem,</li>
+          <li>libpq,</li>
+          <li>depuis la 7.1 (au moins), en 2001.</li>
+        </ul>
+
+        Exemple :
+        <ul>
+          <li>libevent (NGINX),</li>
+          <li>EventMachine (Ruby : Thin, Rack, RoR),</li>
+          <li>Node.js,</li>
+          <li>ActiveMQ, RabbitMQ, ZeroMQ, etc.</li>
+        </ul>
     </div>
 
     <!--
