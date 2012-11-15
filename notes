@@ -102,14 +102,9 @@ PostGIS
 Foreign Data Wrapper
     Impossible de mettre des contrainte car aucun contrôle sur le stockage
     SQL : Voir les utilisateurs de /etc/passwd
--------------------------------------------------- 1m
-
-Foreign Data Wrapper : liste
+    Vers les autres SGBDR, bases NoSQL, fichiers (CSV), GPU, twitter, web.
     Multicorn : surcouche qui fournit une API en Python
-    sqlalchemy : vers d'autre SGBDR
-    fsfdw : vers le système de fichiers
-    hivefdw : Apache Hive (outil Hadoop)
--------------------------------------------------- 30s
+-------------------------------------------------- 1m
 
 NoSQL
     Map&Reduce : existe depuis 40 ans donc à la mode depuis 3 ans
