@@ -8,7 +8,7 @@
     <title>Introduction à PostgreSQL | par Geoffroy BAILLY et Gautier DI FOLCO</title>
 
     <meta name="description" content="Introduction à PostgreSQL, le SGBD Opensource le plus avancé !" />
-    <meta name="author" content="JFD & Gautier DI FOLCO" />
+    <meta name="author" content="JFD" />
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
@@ -101,6 +101,7 @@
           <li>Comparaison avec d'autre SGBD</li>
           <li>Benchmark</li>
         </ul>
+        <br />
         <blockquote>
           Les chiffres sont aux analystes ce que les lampadaires sont aux ivrognes, ils fournissent bien plus un appui qu'un éclairage.
           <span class="author">Jean Dion</span>
@@ -131,7 +132,7 @@
             <li>40 contributeurs</li>
             <li>100 contributeurs occasionnels</li>
           </ul>
-          <li>Très peu de limitations : 32 To par tables, 1 Go par champs, 1.6 To par lignes et 250 à 1.600 colonnes par tabes.</li>
+          <li>Très peu de limitations : 32 To par tables, 1 Go par champs, 1.6 To par lignes et 250 à 1.600 colonnes par tables.</li>
         </ul>
     </div>
 
@@ -150,7 +151,7 @@
         <ul>
           <li>Apple,</li>
           <li>Cisco,</li>
-          <li>État français,</li>
+          <li>État Français,</li>
           <li>HP,</li>
           <li>IMDB.com, The Internet Movie Database,</li>
           <li>Juniper,</li>
@@ -186,7 +187,13 @@ $ sudo yum install postgresql-server</code></pre>
 
     <div id="index2" class="step" data-x="-1100" data-y="-0500" data-scale="1">
         <h1>INDEX</h1>
-        Explications plus avancées
+        <ul>
+			<li>Index uniques</li>
+			<li>Index multicolonnes</li>
+			<li>CLUSTER: réorganisation de la table selon l'index</li>              
+			<li>Verrou sur la table (modification impossible)</li>        
+			<li>Plusieurs types: B-tree, GIN, Hash, GiST</li>        
+        </ul>
     </div>
 
     <div id="vacuum" class="step" data-x="3300" data-y="-1400" data-scale="1">
@@ -392,6 +399,7 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
             <li>Serveur fils inaccessible</li>
         </ul>
 
+		<br />
         <h2>Réplication par triggers</h2>
         <ul>
             <li>Outils externes: Slony/Londiste</li>
@@ -399,7 +407,8 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
             <li>Faible documentation</li>
             <li>Serveur fils en lecture seule</li>
         </ul>
-
+        
+		<br />
         <h2>Réplication des instructions</h2>
         <ul>
             <li>Envoi des requêtes à tous les serveurs</li>
@@ -436,16 +445,17 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
 
     <div id="conclusion" class="step" data-x="2700" data-y="1000" data-scale="1">
         <h1>Vers l'infini et au delà</h1>
-
+		<br/>
         <ul>
           <li><b>Association francophone :</b> postgresql.fr/</li>
           <li><b>Manifestations :</b> RMLL, FOSDEM, Solutions Linux et <b>PgDay-France</b></li>
           <li><b>PostgreSQL Magazine :</b> pgmag.org</li>
           <li><b>Developpeurs :</b> blog.guillaume.lelarge.info / tapoueh.org</li>
         </ul>
-        <blockquote>Ne restez pas seuls ...</blockquote>
         <br/>
-        Présentation : <a href="https://github.com/blackheaven/postgresql-jdll-2012²">https://github.com/blackheaven/postgresql-jdll-2012</a>
+        <blockquote>Ne restez pas seuls ...</blockquote>
+        <br/><br/>
+       <a href="https://github.com/blackheaven/postgresql-jdll-2012">Présentation disponible sur : https://github.com/blackheaven/postgresql-jdll-2012</a>
     </div>
 
     <div id="nosql" class="step" data-x="7000" data-y="1000" data-scale="1">
@@ -512,6 +522,42 @@ WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
         CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
 
     -->
+    
+    
+    
+    <div id="pgplsql" class="step" data-x="12000" data-y="4000" data-scale="1">
+    <h1>Procédures stockées</h1>
+    
+    	<ul>
+			<li>Compense les manques de SQL (instructions)</li>    	
+			<li>Boucles, variables, curseurs, exceptions</li>    	
+			<li>PlpgSQL, Pl/Tcl, Pl/Perl et Pl/Python</li>    	
+		</ul>	
+			
+			<pre><code>SELECT * INTO maligne </code></pre>
+			<pre><code>FROM livre WHERE titre = l_titre;</code></pre>
+			<pre><code>IF NOT FOUND THEN</code></pre>
+    		<pre><code>RAISE EXCEPTION 'livre % introuvable', l_titre;</code></pre>
+			<pre><code>END IF;</code></pre>
+    </div>
+    
+    <div id="triggers" class="step" data-x="12000" data-y="6000" data-scale="1">
+    <h1>Triggers</h1>
+    
+    	<ul>
+			<li>Déclenchement automatique d'une procédure</li>    	
+			<li>Avant ou après</li>    	
+			<li>SELECT, UPDATE, REMOVE</li>    	
+		</ul>	
+			
+			<pre><code>CREATE TRIGGER trig_biblio</code></pre>
+    		<pre><code>AFTER INSERT OR UPDATE OR DELETE ON livre</code></pre>
+    		<pre><code>FOR EACH ROW EXECUTE </code></pre>
+    		<pre><code>PROCEDURE mise_a_jour_biblio();</code></pre>
+    </div>
+    
+    
+    
     <div id="overview" class="step" data-x="1000" data-y="0500" data-scale="15">
         <img src="img/logo.svg" width="90%" height="90%" />
     </div>
