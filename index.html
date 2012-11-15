@@ -398,7 +398,7 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
         </ul>
     </div>
 
-    <div id="replication1" class="step" data-x="12000" data-y="1000" data-rotate="80" data-scale="1">
+    <div id="replication1" class="step" data-x="4500" data-y="-1500" data-scale="1">
         <h1>Réplication</h1>
 
         Plusieurs objectifs:
@@ -418,7 +418,7 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
     </div>
 
 
-    <div id="replication2" class="step" data-x="12000" data-y="3000" data-rotate="80" data-scale="1">
+    <div id="replication2" class="step" data-x="6000" data-y="-1500" data-scale="1">
         <h2>Réplication par journaux XLOG</h2>
         <ul>
             <li>Pas d'outils externe</li>
@@ -443,7 +443,7 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
         </ul>
     </div>
 
-    <div id="pgadmin" class="step" data-x="12000" data-y="5000" data-rotate="80" data-scale="1">
+    <div id="pgadmin" class="step" data-x="-1100" data-y="0" data-scale="1">
         <h1>PgAdmin</h1>
 
         Outil graphique de référence:
@@ -456,7 +456,7 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
         </ul>
     </div>
 
-    <div id="surveillance" class="step" data-x="12000" data-y="7000" data-rotate="80" data-scale="1">
+    <div id="surveillance" class="step" data-x="-600" data-y="500" data-scale="1">
         <h1>Surveillance</h1>
 
         <ul>
@@ -468,19 +468,19 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
         </ul>
     </div>
 
-    <div id="conclusion" class="step" data-x="12000" data-y="9000" data-rotate="80" data-scale="1">
+    <div id="conclusion" class="step" data-x="2700" data-y="1000" data-scale="1">
         <h1>Vers l'infini et au delà</h1>
 
         <ul>
-          <li>Association francophone : postgresql.fr/</li>
-          <li>Manifestations : RMLL, FOSDEM, Solutions Linux et <b>PgDay-France</b></li>
-          <li>PostgreSQL Magazine: pgmag.org</li>
-          <li>Developpeurs : blog.guillaume.lelarge.info / tapoueh.org<li>
+          <li><b>Association francophone :</b> postgresql.fr/</li>
+          <li><b>Manifestations :</b> RMLL, FOSDEM, Solutions Linux et <b>PgDay-France</b></li>
+          <li><b>PostgreSQL Magazine :</b> pgmag.org</li>
+          <li><b>Developpeurs :</b> blog.guillaume.lelarge.info / tapoueh.org</li>
         </ul>
         <blockquote>Ne restez pas seuls ...</blockquote>
     </div>
 
-    <div id="nosql" class="step" data-x="6000" data-y="7000" data-rotate="80" data-scale="1">
+    <div id="nosql" class="step" data-x="7000" data-y="1000" data-scale="1">
         <h1>NoSQL</h1>
         <ul>
           <li>API HTTP RESTful (presque) et RPC (ngx_postgres),</li>
@@ -492,7 +492,7 @@ ORDER BY uid ASC LIMIT 3;</code></pre>
         </ul>
     </div>
 
-    <div id="nosql2" class="step" data-x="7000" data-y="7000" data-rotate="80" data-scale="1">
+    <div id="nosql2" class="step" data-x="7000" data-y="2000" data-scale="1">
         <h1>NoSQL : hstore</h1>
         <pre><code>SELECT 'foo=>bar'::hstore;</code></pre>
         <pre><code>SELECT doc -> ‘text’ as tweet,
@@ -501,7 +501,7 @@ FROM tweets
 WHERE doc @> ‘created_at=>00001323446095’;</code></pre>
     </div>
 
-    <div id="nosql3" class="step" data-x="8000" data-y="7000" data-rotate="80" data-scale="1">
+    <div id="nosql3" class="step" data-x="7000" data-y="3000" data-scale="1">
         <h1>NoSQL : JSON</h1>
         <pre><code>SELECT json_array_agg(...) FROM ...</code></pre>
         <pre><code>SELECT json_object_agg(...) FROM ...</code></pre>
@@ -511,7 +511,7 @@ ON messages (jmember(jsonfield,'titre'));</code></pre>
 WHERE jmember(jsonfield, 'titre') = 'foo';</code></pre>
     </div>
 
-    <div id="asynchrone" class="step" data-x="9000" data-y="7000" data-rotate="80" data-scale="1">
+    <div id="asynchrone" class="step" data-x="7000" data-y="4000" data-scale="1">
         <h1>Event Driven Architecture</h1>
 
         <ul>
