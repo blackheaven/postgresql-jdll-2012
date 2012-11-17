@@ -17,6 +17,7 @@ Ce que ne contient pas cette présentation
     Benchmarks non-exhaustif même avec Dell DVD Store 2
     Performannces variables selon les applications et les configurations (plus de 200 options)
     Posez des questions !
+    La presentation est disponible sur internet
 -------------------------------------------------- 1m
 
 Historique
@@ -30,6 +31,7 @@ Caractéristiques
     5 versions majeurs (nécessité de relancer les tests lors des changements)
     pas besoin de tests entre les mineurs
     Une majeure tout les 12-18 mois, 5 ans de support
+    Bon code (bien documenté), bonne documentation (même en français)
 -------------------------------------------------- 1m30
 
 Entreprises
@@ -44,7 +46,7 @@ Installation
     Une ou deux commandes en plus sous les distributions à RPM
     Mettre un mot de passe et c'est tout !
 -------------------------------------------------- 30s
-
+===> AUTO_VACUUM
 EXPLAIN 1/4
     Exemple (1/2) diappo suivante
 -------------------------------------------------- 30s
@@ -81,7 +83,7 @@ Recherche plein-texte 2.0
     Possibilité de surligner (ts_headline), en HTML par exemple
     Recalcul à chaque requête : possibilité de placer des INDEX GiST et GIN
 -------------------------------------------------- 1m
-
+===> Surveillance
 PGXN
     Simplification de l'installation
 -------------------------------------------------- 1m
@@ -105,7 +107,7 @@ Foreign Data Wrapper
     Vers les autres SGBDR, bases NoSQL, fichiers (CSV), GPU, twitter, web.
     Multicorn : surcouche qui fournit une API en Python
 -------------------------------------------------- 1m
-
+===> Vers l'infini et au delà
 NoSQL
     Map&Reduce : existe depuis 40 ans donc à la mode depuis 3 ans
     unlogged table : idéale pour les données non-persistantes (cache/temporaires)
